@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "429937219163",
+    "project_id": "priceoye-66ee0",
+    "storage_bucket": "priceoye-66ee0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:429937219163:android:1466a72a3b03ba7490d17e",
+        "android_client_info": {
+          "package_name": "com.eatsplits"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "429937219163-is7h9b1cb1qn2aa85ck73lgga991tb9o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD-QuX7Nydpi2BtEX1T9eNF6E21bCvUcP4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "429937219163-is7h9b1cb1qn2aa85ck73lgga991tb9o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
