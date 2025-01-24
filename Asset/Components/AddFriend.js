@@ -19,7 +19,9 @@ import Toast from 'react-native-toast-message';
 const requestGalleryPermission = async () => {
   if (Platform.OS === 'android') {
     try {
+      // Check for Android versions 6.0 (API 23) and above
       if (Platform.Version >= 33) {
+        // Android 13+ (API 33): Use READ_MEDIA_IMAGES
         const mediaPermission = await PermissionsAndroid.request(
           PermissionsAndroid.PERMISSIONS.READ_MEDIA_IMAGES,
           {
@@ -36,12 +38,13 @@ const requestGalleryPermission = async () => {
           );
           return false;
         }
-      } else {
+      } else if (Platform.Version >= 23) {
+        // Android 6.0 to Android 12 (API 23-32): Use READ_EXTERNAL_STORAGE
         const storagePermission = await PermissionsAndroid.request(
           PermissionsAndroid.PERMISSIONS.READ_EXTERNAL_STORAGE,
           {
             title: 'Storage Permission',
-            message: 'This app needs access to your storage.',
+            message: 'This app needs access to your storage to choose photos.',
             buttonPositive: 'OK',
           },
         );
@@ -52,6 +55,11 @@ const requestGalleryPermission = async () => {
           );
           return false;
         }
+      } else {
+        // For Android versions below 6.0 (API < 23): No runtime permissions needed
+        // Permissions are granted at install time
+        console.log('No runtime permissions required for API < 23');
+        return true;
       }
       return true;
     } catch (err) {
